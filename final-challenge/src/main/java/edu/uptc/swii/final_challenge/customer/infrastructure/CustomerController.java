@@ -3,6 +3,7 @@ package edu.uptc.swii.final_challenge.customer.infrastructure;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -15,7 +16,7 @@ public class CustomerController {
         return true;
     }
     @GetMapping("/findcustomerbyid")
-    public String getCustomer(@RequestBody String customer) {
+    public String getCustomer(@RequestParam String customer) {
         //TODO 
         return customer;
     }
