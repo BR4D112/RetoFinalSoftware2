@@ -10,31 +10,25 @@ public class CustomerEventsConsumer {
     @Autowired
     private CustomerService customerService;
 
-    @KafkaListener(topics="" , groupId="")
+    private Customer formatCustomer(String message){
+        message=message.replace("\\","");
+        message=message.substring(1, message.length()-1);
+        JsonUtils jsonUtils = new JsonUtils();
+        return jsonUtils.fromJson(message, Customer.class); 
+    }
+    @KafkaListener(topics="" , groupId="customerId")
     public void addCustomerConsume(String message){
-        message=message.replace("\\","");
-        message=message.substring(1, message.length()-1);
         System.out.println("Add Customer - Received Message: " + message);
-        JsonUtils jsonUtils = new JsonUtils();
-        Customer savedCustomer = jsonUtils.fromJson(message, Customer.class);
-        customerService.addCustomer(savedCustomer);
+        customerService.addCustomer(this.formatCustomer(message));
     }
-    @KafkaListener(topics="" , groupId="")
+    @KafkaListener(topics="" , groupId="customerId")
     public void updateCustomerConsume(String message){
-        message=message.replace("\\","");
-        message=message.substring(1, message.length()-1);
-        System.out.println("update Customer - Received Message: " + message);
-        JsonUtils jsonUtils = new JsonUtils();
-        Customer savedCustomer = jsonUtils.fromJson(message, Customer.class);
-        customerService.updateCustomer(savedCustomer);
+        System.out.println("Update Customer - Received Message: " + message);
+        customerService.updateCustomer(this.formatCustomer(message));
     }
-    @KafkaListener(topics="" , groupId="")
+    @KafkaListener(topics="" , groupId="customerId")
     public void deleteCustomerConsume(String message){
-        message=message.replace("\\","");
-        message=message.substring(1, message.length()-1);
-        System.out.println("delete Customer - Received Message: " + message);
-        JsonUtils jsonUtils = new JsonUtils();
-        Customer savedCustomer = jsonUtils.fromJson(message, Customer.class);
-        customerService.deleteCustomer(savedCustomer);
+        System.out.println("Delete Customer - Received Message: " + message);
+        customerService.deleteCustomer(this.formatCustomer(message));
     }
 }
