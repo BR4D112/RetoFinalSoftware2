@@ -1,4 +1,4 @@
-package edu.uptc.swii.final_challenge.customer.infrastructure;
+package edu.uptc.swii.final_challenge.customer.app.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;

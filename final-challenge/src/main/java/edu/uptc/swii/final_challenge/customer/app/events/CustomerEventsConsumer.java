@@ -1,4 +1,4 @@
-package edu.uptc.swii.final_challenge.customer.app.Events;
+package edu.uptc.swii.final_challenge.customer.app.events;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

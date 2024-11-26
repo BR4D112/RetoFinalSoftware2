@@ -3,7 +3,7 @@ package edu.uptc.swii.final_challenge.customer.app.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.uptc.swii.final_challenge.customer.app.Events.CustomerEventsProducer;
+import edu.uptc.swii.final_challenge.customer.app.events.CustomerEventsProducer;
 import edu.uptc.swii.final_challenge.customer.domain.Customer;
 import edu.uptc.swii.final_challenge.customer.infrastructure.CustomerRespository;
 
