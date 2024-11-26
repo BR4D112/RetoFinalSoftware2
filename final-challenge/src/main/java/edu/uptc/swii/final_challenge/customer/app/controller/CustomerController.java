@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class CustomerController {
+    
     @PostMapping("/createcustomer")
     public boolean saveCustomerController(@RequestBody String customer) {
-        //TODO: process POST request
         return true;
     }
     @GetMapping("/findcustomerbyid")

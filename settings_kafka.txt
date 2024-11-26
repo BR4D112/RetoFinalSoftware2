@@ -1,0 +1,9 @@
+kafka-topics --bootstrap-server localhost:29092 --list
+
+kafka-topics --create --bootstrap-server localhost:29092 --partitions 1 --replication-factor 1 --topic delete_customer_events
+
+kafka-topics --create --bootstrap-server localhost:29092 --partitions 1 --replication-factor 1 --topic update_customer_events
+
+kafka-topics --create --bootstrap-server localhost:29092 --partitions 1 --replication-factor 1 --topic add_customer_events
+
+
