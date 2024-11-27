@@ -7,3 +7,11 @@ kafka-topics --create --bootstrap-server localhost:29092 --partitions 1 --replic
 kafka-topics --create --bootstrap-server localhost:29092 --partitions 1 --replication-factor 1 --topic add_customer_events
 
 
+//settings create container mysql
+
+docker run --rm -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -v $PWD/volume_data:/var/lib/mysql mysql:latest
+
+ docker exec -it [contaninerName] mysql -u root -p
+
+ 
+
