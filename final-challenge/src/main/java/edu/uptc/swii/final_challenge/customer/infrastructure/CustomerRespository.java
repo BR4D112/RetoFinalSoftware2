@@ -7,5 +7,5 @@ import edu.uptc.swii.final_challenge.customer.domain.Customer;
 
 @Repository
 public interface CustomerRespository extends JpaRepository<Customer, String>{
-    
+
 }

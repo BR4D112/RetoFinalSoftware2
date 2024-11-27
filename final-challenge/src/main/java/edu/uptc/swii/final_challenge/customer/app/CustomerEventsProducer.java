@@ -1,4 +1,4 @@
-package edu.uptc.swii.final_challenge.customer.app.events;
+package edu.uptc.swii.final_challenge.customer.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -25,7 +25,8 @@ public class CustomerEventsProducer {
 
     public void sendMessage(String topic, Customer customer){
         String message = new String();
-        message = JsonUtils.toJson(customer);
+        JsonUtils utils = new JsonUtils();
+        message = utils.toJson(customer);
         System.out.println("CustomerEventProducer sendMessage: "+message);
         kafkaTemplate.send(topic, message);
     }
